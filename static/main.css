@@ -1,0 +1,15 @@
+ .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+td {
+    border: solid;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+}
