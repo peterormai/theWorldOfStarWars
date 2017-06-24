@@ -4,7 +4,7 @@ function generateElement(dataList, rowNumber){
     document.getElementById("planets").appendChild(createdTr); 
 
     for(var j = 0; j < dataList.length; j++) {
-            if (j !== dataList.length -1) {
+            if (j !== dataList.length - 1) {
                 var tdTextToInsert = document.createTextNode(dataList[j]);  
                 var createdTd = document.createElement("TD");
                 createdTd.appendChild(tdTextToInsert);                            
@@ -18,7 +18,7 @@ function generateElement(dataList, rowNumber){
                 } else {
                     buttonId = "residentsButton" + rowNumber;
                     document.getElementById('residents' + rowNumber).innerHTML = 
-                                        '<button id=' + buttonId + ' class="w3-button w3-circle w3-green" onclick="visualization()">' + dataList[j] + '</button>';
+                                        '<button id=' + buttonId + ' class="w3-button w3-circle w3-green">' + dataList[j] + '</button>';
                     visualization(buttonId) 
                 }
             }
