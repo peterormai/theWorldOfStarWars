@@ -1,6 +1,6 @@
 function getPlanets() {
     var url = "http://swapi.co/api/planets/";
-
+    allPlanets = []
     $.get({
         url: url,
         success: function(returnData) {
@@ -9,6 +9,8 @@ function getPlanets() {
         dataType: "json"
 
     }).done(function() {
+        var async_request=[];
+        var allPlanetResidentsDatas=[];
         for(var i = 0; i < 10; i++) {
             var name = firstTenPlanets[i].name;
             var diameter = firstTenPlanets[i].diameter;
@@ -26,37 +28,41 @@ function getPlanets() {
             }
 
             var planetDataList = [name, diameter, climate, terrain, surface, population, resident];
+            allPlanets.push(planetDataList);
 
-            generateElement(planetDataList, i);
+            for (var k = 0; k < residentsUrlList.length; k++) {
+                var residentUrl = residentsUrlList[k];
+                async_request.push($.ajax({
+                    url:residentUrl, 
+                    method:'get', 
+                    success: function(data){
+                        allPlanetResidentsDatas.push(data);
+                    }
+                }));
+            }
         }
-    });
-}
+        generateElement(allPlanets);
 
 
-// function getPlanetResidentsDatas(residentsUrlList) {
-//     for(var j = 0; 0 < residentsUrlList.length; i++) {
-//         var url = residentUrlList[j]
-
-//         $.get({
-//             url: url,
-//             success: function(returnData) {
-//                 var residentDatas = returnData.results;
-//                 },
-//             dataType: "json"
-
-//         }).done(function() {
-//             name = residentDatas.name;
-//             height = residentDatas.height;
-//             mass  = residentDatas.mass;
-//             skinColor = residentDatas.skin_color;
-//             hairColor = residentDatas.hair_color;
-//             eyeColor = residentDatas.eye_color;
-//             birthYear = residentDatas.birth_year;
-//             gender = residentDatas.gender;
-
-//             var planetDataList = [name, height, mass, skinColor, hairColor, eyeColor, birthYear, gender];
-//             generateElement(planetDataList, i);
-//         })
         
-//         }
-// }
+
+        $.when.apply(null, async_request).done( function(){
+            for (var y = 0; y < 10; y++) {
+                var residentDatas = allPlanetResidentsDatas[y]
+
+                var name = residentDatas.name;
+                var height = residentDatas.height;
+                var mass  = residentDatas.mass;
+                var skinColor = residentDatas.skin_color;
+                var hairColor = residentDatas.hair_color;
+                var eyeColor = residentDatas.eye_color;
+                var birthYear = residentDatas.birth_year;
+                var gender = residentDatas.gender;
+                debugger;
+
+                planetDataList = [name, height, mass, skinColor, hairColor, eyeColor, birthYear, gender];
+                generateElementToResidents(planetDataList, y)
+            }
+        });
+    })
+}
