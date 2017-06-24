@@ -9,8 +9,21 @@ $.get({
     },
     dataType: "json"
 }).done(function() {
-    var firstOne = firstTenPlanets[0].name
-    document.getElementById("tableDiv").innerText = firstOne;
+    for(var i = 0; i < 10; i++) {
+        var name = firstTenPlanets[i].name;
+        var diameter = firstTenPlanets[i].diameter;
+        var climate = firstTenPlanets[i].cllimate;
+        var terrain = firstTenPlanets[i].terrain;
+        var surface = firstTenPlanets[i].surface;
+        var population = firstTenPlanets[i].population;
+
+        var planetDataList = [name, diameter, climate, terrain, surface, population];
+
+        generateElement(planetDataList, i);
+    }
+    
+
+    // document.getElementById("tableDiv").innerText = firstOne;
 });
 
 
