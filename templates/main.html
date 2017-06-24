@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,10 +10,12 @@
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css')}}">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" defer></script>
 
   <script src="{{url_for('static', filename='generators.js')}}" defer></script>
+  <script src="{{url_for('static', filename='visualization.js')}}" defer></script>
+  <script src="{{url_for('static', filename='data_gatherer.js')}}" defer></script>
   <script src="{{url_for('static', filename='main.js')}}" defer></script>
         
 </head>
@@ -20,7 +23,7 @@
 
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>Star Wars Univers Planet</h1>      
+    <h1>Star Wars Univers Planet</h1>
   </div>
 </div>
 
@@ -44,13 +47,32 @@
 
 <div class="jumbotron" id="tableDiv">
   <table id="planets">
-      <tr>
+      <thead>
           {% for header in table_headers %}
             <td>{{ header }}</td>
           {% endfor %}
-      </tr>
+      </thead>
   </table>
 </div>
+
+<div class="container-fluid bg-3 text-center residents-display">    
+  <div id="residentsModal" class="modal">
+    <div class="modal-content">
+        <span class="residentsClose">&times;</span>
+        <table id="planets">
+          <thead>
+              {% for header in residents_headers %}
+                <td>{{ header }}</td>
+              {% endfor %}
+            </thead>
+          </table>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 
 
