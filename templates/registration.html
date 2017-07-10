@@ -1,0 +1,38 @@
+<!doctype hmtl>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Registration - The World Of Star Wars</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='registration.css') }}">
+    </head>
+    <body>
+        
+        <div class="registration">
+            <h1>Registration Form</h1>
+            <form class="registration" action="/registration" method="POST">
+                <table>
+                    <tr>
+                        <td>Username:</td>
+                        <td><input id=username type="text" name="usrname" minlength=4 placeholder="Enter your username.." required></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input id=password type="password" name="pass" minlength=6 placeholder="Enter your password.." required></td>
+                    </tr>
+                    <tr>
+                        <td>E-mail:</td>
+                        <td><input id=email type="text" name="mail" minlength=4 placeholder="Enter a valid e-mail address.." required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"><input id=submit_registration type="Submit" value="Register">
+                </table> 
+            </form>
+        </div>
+        <div class="create">
+            <a id="home" href="/">
+            <img src="https://pngimg.com/uploads/starwars/starwars_PNG19.png" height="50px" width="50px"/>
+            <p> BACK to the Planets </p>
+            </a>
+        </div>
+    </body>
+</html>

@@ -11,6 +11,40 @@ def main_page():
     return render_template('main.html', table_headers=table_headers, residents_headers=residents_headers)
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    """
+    Error handling for wrong DNS address request.
+    """
+    return render_template('404.html')
+
+# /////////////////// LOGIN SYSTEM /////////////////////////
+
+
+@app.route('/register')
+# @not_with_login
+def new_registration():
+    """
+    Points to the registration page.
+    """
+    return render_template('registration.html')
+
+
+@app.route('/registration', methods=["POST"])
+def registration():
+    """
+    When user data sent from the website, it creates a new database row in users table.
+    """
+    registration_time = str(datetime.now())[:-7]
+    user_name = request.form["usrname"]
+    password = request.form["pass"]
+    email = request.form["mail"]
+    queries.register_new_user(user_name, password, email, registration_time)
+    return redirect('/')
+
+
+# //////////////////////////////////////////////////////////
+
 def main():
     app.run(debug=True)
 
