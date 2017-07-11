@@ -1,5 +1,5 @@
 body{
-    background-color: #414756;
+    background-color: white;
     margin: 0px;
     background-image: url("pictures/background.png");
     background-position: fixed;
@@ -57,7 +57,7 @@ div.topbar a:hover{
     background-color: #595858;
 }
 
-div{
+#login{
     margin-top: 13%;
     margin-left:auto; 
     margin-right:auto;
@@ -95,6 +95,7 @@ div.buttons {
 }
 div.buttons img:hover { opacity: 1; -webkit-filter: brightness(150%); }
 p {
-    color: white;
+    color: black;
+    text-decoration: underline;
     font-size: 1.1vw;
 }

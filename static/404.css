@@ -1,32 +1,32 @@
-body {
-    background-color: #21252d;
-    width: 100%;
-    margin: 0;
-}
-
-div {
-    margin: 0 auto;
-    height: 100%;
-    width: 50%;
-}
-
-h1 {
-     color: #ff0000;
-     font-size: 20px;
-     text-align: center;
-}
-
-img {
+#pic_404 {
     max-height: 100%;
     height: auto;
     height: auto;
     padding-top: 5%;
     padding-left: 6%;
-    text-align: center;
+    position: fixed;
+    left: 28%;
 }
 
-a {
-    text-align: center;
-    padding-left: 35%;
-    color: white;
+
+div.buttons {
+    position: fixed;
+    left: 48%;
+    bottom: 16%;
+}
+
+p{
+    position: fixed;
+    left: 45%;
+    bottom: 10%;
+    color: black;
+    text-decoration: underline;
+}
+
+div.buttons img:hover { 
+    opacity: 1; -webkit-filter: brightness(150%); 
+}
+
+p:hover {
+    color: red;
 }
