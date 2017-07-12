@@ -1,15 +1,19 @@
 <!doctype hmtl>
+
 <html>
+
     <head>
         <meta charset="UTF-8">
         <title>Registration - The World Of Star Wars</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='registration.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/registration.css') }}">
     </head>
+
     <body>
-        
+
         <div class="registration">
-            <h1>Registration Form</h1>
-            <form class="registration" action="/registration" method="POST">
+            <h1>Join us and be <br> a JEDI! </h1>
+            <form action="/registration" method="POST">
+            
                 <table>
                     <tr>
                         <td>Username:</td>
@@ -24,15 +28,19 @@
                         <td><input id=email type="text" name="mail" minlength=4 placeholder="Enter a valid e-mail address.." required></td>
                     </tr>
                     <tr>
-                        <td colspan="4"><input id=submit_registration type="Submit" value="Register">
+                        <td colspan="2"><input id=submit_registration type="Submit" value="Register"></td>
+                    </tr>
                 </table> 
+
             </form>
         </div>
-        <div class="create">
+
+        <div class="buttons">
             <a id="home" href="/">
-            <img src="https://pngimg.com/uploads/starwars/starwars_PNG19.png" height="50px" width="50px"/>
-            <p> BACK to the Planets </p>
+                <img src="https://pngimg.com/uploads/starwars/starwars_PNG19.png" height="50px" width="50px"/>
+                <p> BACK to the Planets </p>
             </a>
         </div>
+
     </body>
 </html>

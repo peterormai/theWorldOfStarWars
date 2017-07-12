@@ -5,21 +5,15 @@
     <head>
         <meta charset="UTF-8">
         <title>Login - The World Of Star Wars</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
     </head>
 
     <body>
         
-        <div>
-             <img src="http://www.pngmart.com/files/3/Star-Wars-PNG-Clipart.png" height="50px" width="50px"/>
-        </div>
         <div id="login">
-           
+            <h1>The dark side of the force is waiting for YOU!</h1>
             <form action='/login' method='POST'>
                 <table>
-                    <tr>
-                        <td colspan="2">The dark side of the force is waiting for YOU!</td>
-                    </tr>
                     <tr>
                         <td>Username</td>
                         <td><input id="username" type="text" name="username"></td>
@@ -37,7 +31,7 @@
                 </table>
             </form>
         </div>
-
+        
         <div class="buttons">
             <a class="home" href="/">
                 <img src="https://pngimg.com/uploads/starwars/starwars_PNG19.png" height="50px" width="50px"/>

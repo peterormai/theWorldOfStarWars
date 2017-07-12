@@ -4,10 +4,6 @@
      padding: 0px;
 }
 
-.navbar-brand {
-    color: black;
-}
-
 .text-center {
     text-align: left;
     margin: 0px;
@@ -16,7 +12,7 @@
  .navbar {
       margin-bottom: 0px;
       border-radius: 0px;
-    }
+}
 
 thead {
     padding: 10px;

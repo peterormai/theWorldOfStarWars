@@ -1,0 +1,41 @@
+body {
+    background-image: url("http://www.pngmart.com/files/3/Star-Wars-Transparent-Background.png");
+    background-repeat: no-repeat;
+}
+
+div {
+    margin-top: 13%;
+    margin-left:auto; 
+    margin-right:auto;
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+    padding: 12px 12px 23px 15px;   
+    font-size: 0.9vw;
+}
+
+td {
+    padding: 5px;
+}
+
+a {
+    text-decoration: underline;
+    font-size: 0.85vw;
+    color: black;
+}
+
+a:hover {
+    color: red;
+}
+
+div.buttons img:hover { 
+    opacity: 1; -webkit-filter: brightness(150%); 
+}
+
+#submit_registration {
+    position: absolute;
+    top: 60%;
+    right: 48%;
+}

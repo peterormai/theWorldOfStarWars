@@ -9,9 +9,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def main_page():
-    table_headers = ["Name", "Diameter in km", "Climate", "Terrain",
-                     "Surface water percentage", "Population", "Residents"]
-    residents_headers = ['Name', 'Heights (m)', 'Mass (kg)', 'Skin color',
+    table_headers = ["Name", "Diameter", "Climate", "Terrain",
+                     "Surface water", "Population", "Residents"]
+    residents_headers = ['Name', 'Heights', 'Mass', 'Skin color',
                          'Hair color', 'Eye color', 'Birth year', 'Gender']
     return render_template('main.html', table_headers=table_headers, residents_headers=residents_headers)
 
@@ -28,16 +28,6 @@ def page_not_found(e):
 app.config.update(
     SECRET_KEY='123124124512312'
 )
-
-
-def admin_required(function):
-    @wraps(function)
-    def wrap(*args, **kwargs):
-        if session.get('role') == 'admin':
-            return function(*args, **kwargs)
-        else:
-            return redirect(url_for('main_page'))
-    return wrap
 
 
 def not_with_login(function):
