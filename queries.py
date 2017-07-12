@@ -4,17 +4,6 @@ import os
 import urllib
 
 
-urllib.parse.uses_netloc.append('postgres')
-url = urllib.parse.urlparse(os.environ.get('DATABASE_URL'))
-connection = psycopg2.connect(
-    database=url.path[1:],
-    user=url.username,
-    password=url.password,
-    host=url.hostname,
-    port=url.port
-)
-
-
 def fetch_database(query, tuple_parameters=None, fetch='all'):
     """Connects to the database to retrieve data, then
     returns it.
