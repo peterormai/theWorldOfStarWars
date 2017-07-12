@@ -12,7 +12,7 @@ __pycache__/
 user.py
 *.csv
 
-*.txt
+
 *.md
 /AskMate-part2-sample-data
 

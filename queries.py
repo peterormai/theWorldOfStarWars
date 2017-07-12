@@ -1,5 +1,18 @@
 import psycopg2
 import user
+import os
+import urllib
+
+
+urllib.parse.uses_netloc.append('postgres')
+url = urllib.parse.urlparse(os.environ.get('DATABASE_URL'))
+connection = psycopg2.connect(
+    database=url.path[1:],
+    user=url.username,
+    password=url.password,
+    host=url.hostname,
+    port=url.port
+)
 
 
 def fetch_database(query, tuple_parameters=None, fetch='all'):
@@ -9,10 +22,22 @@ def fetch_database(query, tuple_parameters=None, fetch='all'):
     Second parameter: parameters which you want to insert into your query, use tupple type
     Third parameter: fetch type, one or all, use string type
     """
+    conn = None
     try:
-        connect_str = "dbname={0} user={0} host='localhost' password={1}".format(user.username, user.password)
-        conn = psycopg2.connect(connect_str)
+        urllib.parse.uses_netloc.append('postgres')
+        url = urllib.parse.urlparse(os.environ.get('DATABASE_URL'))
+
+        conn = psycopg2.connect(
+            database=url.path[1:],
+            user=url.username,
+            password=url.password,
+            host=url.hostname,
+            port=url.port
+        )
         conn.autocommit = True
+        # connect_str = "dbname={0} user={0} host='localhost' password={1}".format(user.username, user.password)
+        # conn = psycopg2.connect(connect_str)
+        # conn.autocommit = True
         cursor = conn.cursor()
         cursor.execute(query, tuple_parameters)
         if fetch == 'all':
@@ -33,11 +58,23 @@ def modify_database(query, tuple_parameters=None):
     """Connects to the database then modifies the data
     without fetching anything.
     """
+    cursor = None
+    conn = None
     try:
-        connect_str = "dbname={0} user={0} host='localhost' password={1}".format(user.username, user.password)
-        conn = psycopg2.connect(connect_str)
-        conn.autocommit = True
+        urllib.parse.uses_netloc.append('postgres')
+        url = urllib.parse.urlparse(os.environ.get('DATABASE_URL'))
+        conn = psycopg2.connect(
+            database=url.path[1:],
+            user=url.username,
+            password=url.password,
+            host=url.hostname,
+            port=url.port
+        )
+        # connect_str = "dbname={0} user={0} host='localhost' password={1}".format(user.username, user.password)
+        # conn = psycopg2.connect(connect_str)
+        # conn.autocommit = True
         cursor = conn.cursor()
+        conn.autocommit = True
         cursor.execute(query, tuple_parameters)
 
     except psycopg2.DatabaseError as exception:
