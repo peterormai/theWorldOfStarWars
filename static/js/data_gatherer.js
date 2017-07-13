@@ -89,7 +89,6 @@ function getResidentDatas (buttonId) {
 
 
 function replaceHttpToHttps(url){
-    debugger;
     var newUrl = url.replace("http://","https://");
     url = newUrl;
     return url
