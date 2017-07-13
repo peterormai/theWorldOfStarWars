@@ -1,10 +1,9 @@
 function getPlanets(url) {
+    url = replaceHttpToHttps(url);
     allPlanets = [];
     allResidentsUrlList = [];
     nextPlanets = "";
     prevPlanets = "";
-    replaceHttpToHttps(url);
-    
 
     $.get({
         url: url,
@@ -56,7 +55,7 @@ function getResidentDatas (buttonId) {
 
     for (var k = 0; k < residentsUrlList.length; k++) {
         var residentUrl = residentsUrlList[k];
-        replaceHttpToHttps(residentUrl);
+        residentUrl = replaceHttpToHttps(residentUrl);
         async_request.push($.ajax({
             url:residentUrl, 
             method:'get', 
@@ -88,6 +87,10 @@ function getResidentDatas (buttonId) {
     });
 }
 
+
 function replaceHttpToHttps(url){
-    url = url.replace("http://","https://");
+    debugger;
+    var newUrl = url.replace("http://","https://");
+    url = newUrl;
+    return url
 }

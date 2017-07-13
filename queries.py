@@ -76,5 +76,5 @@ def register_new_user(user_name, password, email, registration_time):
 
 def check_user(username, password):
     """Selects user and password from the database"""
-    return fetch_database("""SELECT role FROM users
+    return fetch_database("""SELECT role FROM swusers
                           WHERE username=%s AND password=%s;""", (username, password), 'one')

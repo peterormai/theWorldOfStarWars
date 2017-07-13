@@ -1,5 +1,6 @@
 function main() {
     var url = "http://swapi.co/api/planets/";
+    
     getPlanets(url);
 
     $("#next").click( function () {
@@ -20,3 +21,4 @@ function main() {
 }
 
 $(document).ready(main);
+
