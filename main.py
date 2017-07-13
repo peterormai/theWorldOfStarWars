@@ -60,7 +60,7 @@ def new_registration():
     return render_template('registration.html')
 
 
-@app.route('/registration', methods=["POST"])
+@app.route('/register', methods=["POST"])
 def registration():
     """
     When user data sent from the website, it creates a new database row in users table.
