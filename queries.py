@@ -71,7 +71,7 @@ def modify_database(query, tuple_parameters=None):
 
 def register_new_user(user_name, password, email, registration_time):
     modify_database("""INSERT INTO swuser(username, password, email, registration_time)
-                    SELECT '{}', '{}', '{}', '{}';""".format(user_name, password, email, registration_time))
+    VALUES(%s, %s, %s, %s);""", (user_name, password, email, registration_time))
 
 
 def check_user(username, password):
